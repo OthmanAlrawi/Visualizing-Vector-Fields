@@ -1,5 +1,5 @@
 # Visualizing-Vector-Fields
-#A. To run the project, follow the instructions:
+# To run the project, follow the instructions:
 # 1 - Download Unity using the provided instruction at: https://unity.com/download
 # 2 - Download SteamVR by following the instructions at: https://www.acer.com/ac/en/US/content/windows-mixed-reality-setup-steamvr
 # 3 - Setup an account in both Unity and Steam
