@@ -16,6 +16,7 @@ public class voltageMeter : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
+            // Update voltage meter text to the voltage of the currently drawn equipotential surface. 
             text.text = potential.voltage.ToString("F2") + " V";
         }
     }
