@@ -156,7 +156,7 @@ public class Outline : MonoBehaviour {
     Destroy(outlineMaskMaterial);
     Destroy(outlineFillMaterial);
   }
-
+    
   void Bake() {
 
     // Generate smooth normals for each mesh
@@ -169,11 +169,14 @@ public class Outline : MonoBehaviour {
         continue;
       }
 
-      // Serialize smooth normals
-      var smoothNormals = SmoothNormals(meshFilter.sharedMesh);
+            // Serialize smooth normals
+            if (meshFilter.sharedMesh)
+            {
+                var smoothNormals = SmoothNormals(meshFilter.sharedMesh);
 
-      bakeKeys.Add(meshFilter.sharedMesh);
-      bakeValues.Add(new ListVector3() { data = smoothNormals });
+                bakeKeys.Add(meshFilter.sharedMesh);
+                bakeValues.Add(new ListVector3() { data = smoothNormals });
+            }
     }
   }
 

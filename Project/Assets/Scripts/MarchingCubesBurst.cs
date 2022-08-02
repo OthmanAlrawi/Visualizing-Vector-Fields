@@ -159,13 +159,13 @@ public class MarchingCubesBurst {
 		NormJobHandle.Complete();
 
 
-		for (int i = 0; i < totalVerts - 3; i += 3) {
+		for (int i = 0; i < totalVerts; i += 3) {
 			curTriangles[i] = i;
 			curTriangles[i + 1] = i + 1;
 			curTriangles[i + 2] = i + 2;
 		}
 		//Double the triangles to have both faces
-		for (int i = (int)totalVerts; i < totalVerts * 2 - 3; i += 3) {
+		for (int i = (int)totalVerts; i < totalVerts * 2; i += 3) {
 			curTriangles[i] = i - (int)totalVerts;
 			curTriangles[i + 2] = i + 1 - (int)totalVerts; //Invert triangles here
 			curTriangles[i + 1] = i + 2 - (int)totalVerts;
@@ -423,7 +423,7 @@ public class MarchingCubesBurst {
 			for (int i = 0; i < numVerts; i += 3) {
 
 				int id = (int)vertPerCell[(int)voxel].x + i;
-				if (id >= totalVerts - 3)
+				if (id >= totalVerts)
 					return;
 				int edge = triTable[i + cubeIndex * 16]; // ==> triTable[cubeIndex][i]
 

@@ -11,6 +11,7 @@ public class rightControl : MonoBehaviour
     public SteamVR_Action_Boolean touch = null;
     public SteamVR_Action_Boolean press = null;
     public SteamVR_Action_Vector2 touchPosition = null;
+    public SteamVR_Action_Boolean togglePotential;
     public GameObject voltageMeter;
 
     public SteamVR_Behaviour_Pose controllerPose;
@@ -25,6 +26,11 @@ public class rightControl : MonoBehaviour
 
     void Update()
     {
+        if (togglePotential.GetLastStateDown(handType))
+        {
+            potential.toggleMarchingCube();
+        }
+
         if (press.GetState(handType))
         {
             if(touchPosition.GetAxis(handType).y > 0)
@@ -37,7 +43,7 @@ public class rightControl : MonoBehaviour
             }
         }
 
-        if (electricField.potentialToggle)
+        if (potential.potentialToggle)
         {
             if (touch.GetStateDown(handType))
             {
@@ -75,25 +81,32 @@ public class rightControl : MonoBehaviour
 
         if (grabAction.GetLastStateDown(handType) && collidingObject)
         {
-            if (collidingObject.tag == "Test Particle")
+            if(collidingObject != leftControl.model)
             {
-                GrabObject();
-            } else if(collidingObject.tag == "Charge")
-            {
-                collidingObject.GetComponent<Charges>().backGround = false;
-                electricField.updateBackgroundField();
-                GrabObject();
-            }
-            else if (collidingObject.tag == "Extended Object")
-            {
-                for(int i = 0; i < collidingObject.transform.childCount; i++)
+                if (collidingObject.tag == "Test Particle")
                 {
-                    collidingObject.transform.GetChild(i).gameObject.GetComponent<Charges>().backGround = false;
+                    GrabObject();
                 }
-                electricField.updateBackgroundField();
-                GrabObject();
+                else if (collidingObject.tag == "Charge")
+                {
+                    collidingObject.GetComponent<Charges>().backGround = false;
+                    electricField.updateBackgroundField();
+                    GrabObject();
+                }
+                else if (collidingObject.tag == "Extended Object")
+                {
+                    for (int i = 0; i < collidingObject.transform.childCount; i++)
+                    {
+                        collidingObject.transform.GetChild(i).gameObject.GetComponent<Charges>().backGround = false;
+                    }
+                    electricField.updateBackgroundField();
+                    GrabObject();
+
+                }
+                testParticle.updateNonStaticCharges();
             }
-            testParticle.updateNonStaticCharges();
+            
+       
 
         }
 

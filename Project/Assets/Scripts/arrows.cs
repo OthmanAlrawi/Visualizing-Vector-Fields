@@ -13,6 +13,7 @@ public class arrows : MonoBehaviour
     public float sharpness;
     public float scale = 4.5f;
     private float maxDistance;
+    public bool toggleDistanceColorScaling = true;
 
 
     private void Start()
@@ -37,41 +38,45 @@ public class arrows : MonoBehaviour
                             t = 1;
                         }
                         */
-            List<GameObject> charges = testParticle.nonChildCharges;
-            GameObject[] extendedObjects = testParticle.extendedObjects;
-            
-            float z = 1;
-            for(int i = 0; i < charges.Count; i++)
+            if (toggleDistanceColorScaling)
             {
-                if (charges[i])
+                List<GameObject> charges = testParticle.nonChildCharges;
+                GameObject[] extendedObjects = testParticle.extendedObjects;
+
+                float z = 1;
+                for (int i = 0; i < charges.Count; i++)
                 {
-                    float u = scale * (charges[i].transform.position - transform.position).magnitude / (electricField.maxDistance);
-                    if (u < z)
+                    if (charges[i])
                     {
-                        z = u;
+                        float u = scale * (charges[i].transform.position - transform.position).magnitude / (electricField.maxDistance);
+                        if (u < z)
+                        {
+                            z = u;
+                        }
                     }
                 }
-            }
-            for (int i = 0; i < extendedObjects.Length; i++)
-            {
-                if (extendedObjects[i])
+                for (int i = 0; i < extendedObjects.Length; i++)
                 {
-                    float u = scale * (extendedObjects[i].transform.position - transform.position).magnitude / (electricField.maxDistance);
-                    if (u < z)
+                    if (extendedObjects[i])
                     {
-                        z = u;
+                        float u = scale * (extendedObjects[i].transform.position - transform.position).magnitude / (electricField.maxDistance);
+                        if (u < z)
+                        {
+                            z = u;
+                        }
                     }
                 }
+                if (z > threshold)
+                {
+                    gameObject.GetComponent<Renderer>().enabled = false;
+                }
+                else
+                {
+                    gameObject.GetComponent<Renderer>().enabled = true;
+                    GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(startColor, endColor, Mathf.Pow(z, sharpness)));
+                }
             }
-            if (z > threshold)
-            {
-                gameObject.GetComponent<Renderer>().enabled = false;
-            }
-            else
-            {
-                gameObject.GetComponent<Renderer>().enabled = true;
-                GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(startColor, endColor, Mathf.Pow(z, sharpness)));
-            }
+
             
             gameObject.transform.localScale = new Vector3(Mathf.Lerp(minArrowLength, maxArrowLength, t), 1, 1);
         }

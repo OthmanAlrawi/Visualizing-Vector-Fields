@@ -8,6 +8,7 @@ public class testParticle : MonoBehaviour
     public static GameObject[] charges;
     public static List<GameObject> nonStaticCharges;
     public static GameObject[] extendedObjects;
+    public float surviveDistance;
     public static List<GameObject> nonChildCharges;
 
     private void Start()
@@ -16,6 +17,13 @@ public class testParticle : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (transform.position.magnitude > surviveDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void FixedUpdate()
     {
         rigidBody.AddForce(calculateField(transform.position));

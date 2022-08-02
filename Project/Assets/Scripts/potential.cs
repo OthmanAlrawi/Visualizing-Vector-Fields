@@ -13,6 +13,7 @@ public class potential : MonoBehaviour
     MarchingCubesBurst mcb;
     public static float voltage = 1;
     public int gridWidth;
+    public static bool potentialToggle = false;
     Vector3 oriXInv;
 
     int3 gridSize;
@@ -39,8 +40,12 @@ public class potential : MonoBehaviour
 
     private void Update()
     {
+        if (!potentialToggle)
+        {
+            gameObject.GetComponent<MeshFilter>().mesh = new Mesh();
+        }
 
-        if (electricField.potentialToggle)
+        if (potentialToggle)
             {
 
             if(testParticle.nonStaticCharges.Count == 0)
@@ -96,8 +101,12 @@ public class potential : MonoBehaviour
                 mcb.Clean();
 
 
-            }
-       
+        }
+
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            toggleMarchingCube();
+        }
 
     }
 
@@ -170,6 +179,11 @@ public class potential : MonoBehaviour
                 Destroy(allParticleSystems[i]);
             }
         }*/
+    
+    public static void toggleMarchingCube()
+    {
+        potentialToggle = !potentialToggle;
+    }
 
     public static float calculatePotential(Vector3 position)
     {

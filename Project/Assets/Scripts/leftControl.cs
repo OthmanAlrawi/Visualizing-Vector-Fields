@@ -8,6 +8,7 @@ public class leftControl : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Action_Boolean grabAction;
     public SteamVR_Action_Boolean toggle;
+    public SteamVR_Action_Boolean toggleFieldLines;
 
     private GameObject objectInHand;
 
@@ -65,6 +66,11 @@ public class leftControl : MonoBehaviour
         if (grabAction.GetLastStateDown(handType))
         {
             spawnModel();
+        }
+
+        if (toggleFieldLines.GetLastStateDown(handType))
+        {
+            electricField.toggleFieldLines();
         }
 
         if (toggle.GetLastStateDown(handType))

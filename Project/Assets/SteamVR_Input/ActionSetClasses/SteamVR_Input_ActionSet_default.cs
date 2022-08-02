@@ -153,6 +153,22 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean toggleElectricField
+        {
+            get
+            {
+                return SteamVR_Actions.default_toggleElectricField;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean togglePotential
+        {
+            get
+            {
+                return SteamVR_Actions.default_togglePotential;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

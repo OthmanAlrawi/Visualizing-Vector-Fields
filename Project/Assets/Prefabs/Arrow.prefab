@@ -95,10 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   field: {x: 0, y: 0, z: 0}
-  minArrowLength: 0.6
-  maxArrowLength: 0.8
+  minArrowLength: 0.4
+  maxArrowLength: 1
   startColor: {r: 1, g: 1, b: 1, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 1}
   threshold: 0.85
   sharpness: 3
-  scale: 3.5
+  scale: 2
+  toggleDistanceColorScaling: 0

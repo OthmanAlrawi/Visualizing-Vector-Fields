@@ -6,7 +6,7 @@ public class electricField : MonoBehaviour
 {
     public GameObject arrow;
     public int gridResolution = 5;
-    public int gridWidth = 4;
+    public float gridWidth = 4;
     public static float maxDistance;
     public int fieldLineResolution = 5;
     static GameObject[] arrows;
@@ -25,17 +25,12 @@ public class electricField : MonoBehaviour
 /*    public Color startColor = Color.black;
     public Color endColor = Color.black;*/
     public static bool fieldLinesToggle = false;
-    public bool fieldLinesToggle0 = false;
-    public bool electricFieldToggle0 = false;
-    static bool electricFieldToggle;
-    public static bool potentialToggle = true;
-    public bool potentialToggle0 = true;
+
     void Start()
     {
         maxDistance = Mathf.Sqrt(3) * gridWidth;
         lifeTime1 = lifeTime;
         spawnInterval1 = spawnInterval;
-        fieldLinesToggle = fieldLinesToggle0;
         InvokeRepeating("invokedSpawnTracers", 0, spawnInterval);
         Vector3[,,] grid = createGrid(gridResolution, gridWidth, transform.position);
 
@@ -64,21 +59,17 @@ public class electricField : MonoBehaviour
 
     public static void updateBackgroundField()
     {
-        if (electricFieldToggle)
-        {
-            Vector3[] fields = new Vector3[arrows.Length];
+        Vector3[] fields = new Vector3[arrows.Length];
 
-            for (int i = 0; i < arrows.Length; i++)
-            {
-                fields[i] = testParticle.calculateStaticField(arrows[i].transform.position);
-            }
-
-            backgroundField = fields;
-        }
-        if (potentialToggle)
+        for (int i = 0; i < arrows.Length; i++)
         {
-            potential.updateBackgroundPotentials();
+            fields[i] = testParticle.calculateStaticField(arrows[i].transform.position);
         }
+
+        backgroundField = fields;
+        
+        potential.updateBackgroundPotentials();
+
 
     }
 
@@ -142,39 +133,44 @@ public class electricField : MonoBehaviour
         }
         return vertices;
     }
+    public static void toggleFieldLines()
+    {
+        fieldLinesToggle = !fieldLinesToggle;
+    }
     void Update()
     {
-        potentialToggle = potentialToggle0;
-        electricFieldToggle = electricFieldToggle0;
+
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            toggleFieldLines();
+
+
+        }
         maxField = 0;
         minField = (backgroundField[0] + testParticle.calculateNonStaticField(arrows[0].transform.position)).magnitude;
-        if (electricFieldToggle)
+
+        for (int i = 0; i < arrows.Length; i++)
         {
-
-            for (int i = 0; i < arrows.Length; i++)
+            Vector3 field;
+            if (testParticle.nonStaticCharges.Count == 0)
             {
-                Vector3 field;
-                if (testParticle.nonStaticCharges.Count == 0)
-                {
-                   field = backgroundField[i];
-                }
-                else
-                {
-                    field = backgroundField[i] + testParticle.calculateNonStaticField(arrows[i].transform.position);
-                }
-
-                if (field.magnitude > maxField)
-                {
-                    maxField = field.magnitude;
-                }
-                if (field.magnitude < minField)
-                {
-                    minField = field.magnitude;
-                }
-
-                arrows[i].GetComponent<arrows>().field = field;
-
+                field = backgroundField[i];
             }
+            else
+            {
+                field = backgroundField[i] + testParticle.calculateNonStaticField(arrows[i].transform.position);
+            }
+
+            if (field.magnitude > maxField)
+            {
+                maxField = field.magnitude;
+            }
+            if (field.magnitude < minField)
+            {
+                minField = field.magnitude;
+            }
+
+            arrows[i].GetComponent<arrows>().field = field;
 
         }
     }

@@ -80,6 +80,14 @@
       "requirement": "mandatory"
     },
     {
+      "name": "/actions/default/in/toggleElectricField",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/togglePotential",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
