@@ -10,8 +10,8 @@
 <br>9 - You should now be able to run the project<br>
 
 # "VR Executable.zip"
-<br> - This file is an executable that allows you to run the VR program wihtout Unity. To run, you will need to have Steam VR setup. Download the file, uncompress and then run "Electric Field"
+<br>This file is an executable that allows you to run the VR program wihtout Unity. To run, you will need to have Steam VR setup. Download the file, uncompress and then run "Electric Field"
 
 # "Marching Cubes Demo.zip"
-<br> - This a demo program that is a helpful visualization on how the Marching Cubes algorithm works. To run the program, download the file, uncompress and then run Marching-Cubes
+<br>This is a demo program that is a helpful visualization for how the Marching Cubes algorithm works. To run the program, download the file, uncompress and then run Marching-Cubes
 
