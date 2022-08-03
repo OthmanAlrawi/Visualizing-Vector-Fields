@@ -11,12 +11,12 @@ public class voltageMeter : MonoBehaviour
         text = gameObject.GetComponent<Text>();
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         if (gameObject.activeSelf)
         {
-            // Update voltage meter text to the voltage of the currently drawn equipotential surface. 
+            //Update voltage meter text to the voltage of the currently drawn equipotential surface 
             text.text = potential.voltage.ToString("F2") + " V";
         }
     }
