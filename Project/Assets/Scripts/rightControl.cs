@@ -196,7 +196,8 @@ public class rightControl : MonoBehaviour
         fx.breakTorque = Mathf.Infinity;
         return fx;
     }
-
+    
+    //Resets the scene by destroying all the charges spawned
     private void Reset()
     {
         GameObject[] charge = GameObject.FindGameObjectsWithTag("Test Particle");
@@ -226,9 +227,10 @@ public class rightControl : MonoBehaviour
         }
 
     }
+    
+    //Release currently grabbed charge on trigger release
     private void ReleaseObject()
     {
-        
         if (GetComponent<FixedJoint>())
         {
             GetComponent<FixedJoint>().connectedBody = null;
