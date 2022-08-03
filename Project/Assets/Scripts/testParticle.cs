@@ -26,17 +26,17 @@ public class testParticle : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        // Exert force onto the test particle according to the field at its position. 
+        //Exert force onto the test particle according to the field at its position 
         rigidBody.AddForce(calculateField(transform.position));
     }
 
-    // Updates the arrays that holds references to the different charge types. 
+    //Updates the arrays that holds references to the different charge types 
     public static void updateCharges()
     {
         charges = GameObject.FindGameObjectsWithTag("Charge");
         extendedObjects = GameObject.FindGameObjectsWithTag("Extended Object");
         
-        // These are the charges which are not attached to an extended object. 
+        //These are the charges which are not attached to an extended object 
         nonChildCharges = new List<GameObject>();
         for (int i = 0; i < charges.Length; i++)
         {
@@ -57,7 +57,7 @@ public class testParticle : MonoBehaviour
 
     }
     
-    // Updates the array that holds references all the non static charges present in the scene, those are charges that are attached to the controllers. 
+    //Updates the array that holds references to all the non static charges present in the scene, those are the dynamic charges that are attached to the controllers 
     public static void updateNonStaticCharges()
     {
         GameObject[] charges0 = GameObject.FindGameObjectsWithTag("Charge");
@@ -73,7 +73,7 @@ public class testParticle : MonoBehaviour
         }
     }
     
-    // Calculates the field produces by all the charges in the scene.
+    //Calculates the field produces by all the charges in the scene
     public static Vector3 calculateField(Vector3 position)
     {
         Vector3 field = Vector3.zero;
@@ -91,7 +91,7 @@ public class testParticle : MonoBehaviour
 
     }
 
-    // Calculates the field produces by the charges that are part of the background charge distrubution i.e. static. 
+    //Calculates the field produces by the charges that are part of the background charge distrubution i.e. static 
     public static Vector3 calculateStaticField(Vector3 position)
     {
         Vector3 field = Vector3.zero;
@@ -111,7 +111,7 @@ public class testParticle : MonoBehaviour
 
     }
     
-    // Calculates the field produces by the non static charges i.e. those that are attached to the controllers. 
+    //Calculates the field produces by the dynamic charges i.e. those that are attached to the controllers 
     public static Vector3 calculateNonStaticField(Vector3 position)
     {
         Vector3 field = Vector3.zero;
