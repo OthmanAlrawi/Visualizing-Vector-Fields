@@ -1,3 +1,6 @@
+@settings {
+  font-size: 12;
+}
 # To run the project, follow the instructions:
 # 1 - Download Unity using the provided instructions at: https://unity.com/download
 # 2 - Download SteamVR by following the instructions at: https://www.acer.com/ac/en/US/content/windows-mixed-reality-setup-steamvr
