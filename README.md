@@ -7,11 +7,18 @@
 <br>6 - In the main starting page, go through "Add" and the then select the directory: Visualizing-Vector-Fields-main >> Project (From part 4)<br>
 <br>7 - The unity project should now be available in Unity Hub and can be opened<br>
 <br>8 - If opening the project gives a "Failed to load window layout" error, you will need to open the project files. From Unity Hub, if you press the 3 dots >> "Show in Explorer" >> Project >> Library. You will have to delete the existing CurrentLayout-default.dwlt file and replace it with the one from the repo<br>
-<br>9 - You should now be able to run the project<br>
+<br>9 - You should now be able to run the project<br><br><br>
 
+Controls:<br><br>
+![alt text](https://raw.githubusercontent.com/OthmanAlrawi/Visualizing-Vector-Fields/main/Controls%20Manual.png)
 # "VR Executable.zip"
-<br>This file is an executable that allows you to run the VR program wihtout Unity. To run, you will need to have Steam VR setup. Download the file, uncompress and then run "Electric Field"
+<br>This file is an executable that allows you to run the VR project wihtout Unity. To run, you will need to have Steam VR setup. Download the file, uncompress and then run "Electric Field"
 
 # "Marching Cubes Demo.zip"
 <br>This is a demo program that is a helpful visualization for how the Marching Cubes algorithm works. To run the program, download the file, uncompress and then run Marching-Cubes
+<br><br>
+Controls:
+<br><br>Z - show/unshow cursor<br>
+<br>Spacebar - to reset camera position in case you get lost in the abyss<br>
+
 
