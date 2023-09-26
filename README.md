@@ -1,4 +1,5 @@
-![electric_dipole1](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/a8a8e4ef-3079-4426-bd86-3195e3b4644a)
+![charge_distribution](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/3ce8a672-d039-4ea4-9eef-10dbf9660cbf)
+![electric_dipole1](https:![Uploading charge_distribution.png…]()
 ![equipotential_surface](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/61db4146-dfaf-47b0-a94a-5528a8803755)
  "Project" Setup in Unity
 <br>1 - Download Unity using the provided instructions at: https://unity.com/download<br>
