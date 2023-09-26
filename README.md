@@ -1,7 +1,7 @@
 ![charge_distribution](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/3ce8a672-d039-4ea4-9eef-10dbf9660cbf)
 ![electric_dipole1](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/4c4a3869-25c2-4d56-9e0a-9b65213d3829)
 ![equipotential_surface](https://github.com/OthmanAlrawi/Visualizing-Vector-Fields/assets/77903464/61db4146-dfaf-47b0-a94a-5528a8803755)
- "Project" Setup in Unity
+# "Project" Setup in Unity
 <br>1 - Download Unity using the provided instructions at: https://unity.com/download<br>
 <br>2 - Download SteamVR by following the instructions at: https://www.acer.com/ac/en/US/content/windows-mixed-reality-setup-steamvr<br>
 <br>3 - Download the "Project" file (take note of the path since you will need it later): Code >> Download Zip <br>
