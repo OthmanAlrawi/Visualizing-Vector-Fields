@@ -11,7 +11,7 @@
 <br>7 - If opening the project gives a "Failed to load window layout" error, you will need to open the project files. From Unity Hub, if you press the 3 dots >> "Show in Explorer" >> Project >> Library. You will have to delete the existing CurrentLayout-default.dwlt file and replace it with the one from the repo<br>
 <br>8 - You should now be able to run the project<br><br><br>
 
-# Controls:<br><br>
+# Controls:
 ![alt text](https://raw.githubusercontent.com/OthmanAlrawi/Visualizing-Vector-Fields/main/Controls%20Manual.png)
 # "VR Executable.zip"
 <br>This file is an executable that allows you to run the VR project wihtout Unity. To run, you will need to have Steam VR setup. Download the file, uncompress and then run "Electric Field"
